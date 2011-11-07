@@ -10,7 +10,7 @@ gem 'kaminari'
 gem 'acts_as_commentable'
 
 gem 'devise', '1.4.5'
-gem 'omniauth'
+gem 'omniauth', '0.3.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
