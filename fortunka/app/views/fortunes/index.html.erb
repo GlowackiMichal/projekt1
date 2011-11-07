@@ -1,0 +1,50 @@
+<% title "All fortunes" %>
+<div class="sign">
+<% if current_user %>
+  Welcome <%= current_user.name %>!
+  <%= link_to "Sign Out", signout_path %>
+<% else %>
+  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<% end %>
+  </div>
+<br/>
+<div class="newText">
+ <%= link_to 'New Fortune', new_fortune_path %>
+</div>
+<br/><br/>
+<% @fortunes.each do |fortune| %>
+
+<article class="index">
+ 
+
+
+  <div class="attribute">
+    <span class="name">Source</span>
+    <span class="value"><%= fortune.source %></span>
+  </div>
+    <div class="attribute">
+    <span class="name">Body</span>
+    <span class="value"><%= fortune.body %></span>
+  </div>
+    <div class="links">
+    <%= link_to 'Show', fortune %> |
+    <%= link_to 'Edit', edit_fortune_path(fortune) %> |
+    <%= link_to 'Destroy', fortune, confirm: 'Are you sure?', method: :delete %>
+  </div>
+</article>
+<% end %>
+
+<div class="link">
+ 
+
+
+
+
+  <%= paginate @fortunes %>
+
+
+
+
+</div>
+
+
